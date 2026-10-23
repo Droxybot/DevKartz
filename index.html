@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevKartz — Your developer resources, organized</title>
+  <meta name="description" content="DevKartz is a free Chrome extension that saves the docs, tools and tutorials you keep coming back to. Categories, tags, instant search. Stored only in your browser.">
+  <meta name="theme-color" content="#F4F7F2">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://devkartz.shop/">
+  <meta property="og:url" content="https://devkartz.shop/">
+  <meta property="og:title" content="DevKartz — Your developer resources, organized">
+  <meta property="og:description" content="Save the docs, tools and tutorials you keep coming back to. Free Chrome extension. Stored only in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://devkartz.shop/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="DevKartz home"><img src="/img/logo-icon.svg" alt="" width="32" height="32"><span>DevKartz</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-small" data-install>Add to Chrome</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <svg class="hero-mark" data-speed="-0.12" viewBox="0 0 256 256" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M76 67h91a13 13 0 0 1 13 13v17" opacity=".6"/><path d="M65 96h91a13 13 0 0 1 13 13v17" opacity=".8"/><rect x="54" y="121" width="119" height="67" rx="15"/><path d="M78 146h42"/></g></svg>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">A Chrome extension for developers</p>
+        <h1 class="reveal-words" aria-label="Your developer resources, organized.">
+          <span class="w">Your</span> <span class="w">developer</span> <span class="w">resources,</span> <span class="w"><em class="stack">organized.</em></span>
+        </h1>
+        <p class="lede reveal">DevKartz keeps the docs, tools and tutorials you keep coming back to. Sorted into categories, found with a keystroke, and stored only in your browser.</p>
+        <div class="cta-row reveal">
+          <button class="btn btn-magnet" data-install>Add to Chrome <span class="arrow" aria-hidden="true">→</span></button>
+          <a class="link-arrow" href="#how">See how it works</a>
+        </div>
+        <p class="meta reveal">Free <i>/</i> No account <i>/</i> Nothing leaves your browser</p>
+      </div>
+
+      <div class="stage reveal" id="demo">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div class="address" id="address" aria-live="polite">developer.mozilla.org</div>
+            <button class="ext-btn is-open" id="extBtn" aria-label="DevKartz extension (demo)"><img src="/img/logo-icon.svg" alt="" width="22" height="22"></button>
+          </div>
+          <div class="browser-page" aria-hidden="true">
+            <div class="page-title" id="pageTitle">Select a page to save</div>
+            <div class="page-lines"><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="pop" id="pop">
+            <div class="pop-top">
+              <div class="pop-brand"><img src="/img/logo-icon.svg" alt="" width="26" height="26"><strong>DevKartz</strong></div>
+              <button class="pop-save" id="saveTab">Save this tab</button>
+            </div>
+            <div class="pop-count"><span id="popCount">0</span> resources</div>
+            <label class="pop-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="popQuery" type="search" placeholder="Search resources" aria-label="Search the demo library"></label>
+            <div class="pop-filters">
+              <select id="popCategory" aria-label="Category"><option value="">All categories</option></select>
+              <select id="popSort" aria-label="Sort"><option value="fav">Favorites first</option><option value="az">A–Z</option><option value="new">Newest</option></select>
+              <button id="popFav" aria-pressed="false">★ Favorites</button>
+            </div>
+            <div class="pop-list" id="popList"></div>
+            <div class="pop-toast" id="popToast" role="status"><span id="popToastMsg"></span><button id="popUndo" hidden>Undo</button></div>
+          </div>
+        </div>
+        <p class="caption"><span aria-hidden="true">↑</span> A working demo. Click “Save this tab”, search, star things.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIBBON -->
+  <section class="ribbon" aria-label="Examples of resources developers save">
+    <div class="ribbon-row" data-dir="1"><span>MDN Web Docs</span><span>Can I use</span><span>Regex101</span><span>web.dev</span><span>JavaScript.info</span><span>TypeScript Docs</span><span>React Docs</span><span>Node.js Docs</span><span>GitHub Docs</span><span>Stack Overflow</span><span>JSONLint</span><span>MDN Web Docs</span><span>Can I use</span><span>Regex101</span><span>web.dev</span></div>
+    <div class="ribbon-row alt" data-dir="-1" aria-hidden="true"><span>Collect</span><span>Organize</span><span>Create</span><span>Collect</span><span>Organize</span><span>Create</span><span>Collect</span><span>Organize</span><span>Create</span><span>Collect</span><span>Organize</span><span>Create</span></div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement">
+    <div class="wrap narrow">
+      <p class="statement-text" id="statement">Bookmarks pile up. Tabs multiply. The one page you needed is somewhere in the pile. DevKartz gives every useful doc, tool and tutorial a place to live, then gets out of your way.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="wrap features-grid">
+      <div class="features-intro">
+        <p class="eyebrow">What’s inside</p>
+        <h2>Small on purpose.</h2>
+        <p>One job, done well. A fast shelf for the links developers reuse, with nothing to sign up for and nothing to configure.</p>
+      </div>
+      <ol class="feature-list">
+        <li class="feature reveal">
+          <span class="num">01</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1z"/><path pathLength="1" d="M12 8v4M10 10h4"/></svg>
+          <div><h3>Save in one click</h3><p>Hit “Save this tab” and the title and address are captured. Add a note, a category and tags if you want to.</p></div>
+        </li>
+        <li class="feature reveal">
+          <span class="num">02</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <div><h3>Categories and tags</h3><p>One category per link, as many tags as you like. Click a tag in your list to filter by it.</p></div>
+        </li>
+        <li class="feature reveal">
+          <span class="num">03</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle pathLength="1" cx="11" cy="11" r="7"/><path pathLength="1" d="m20 20-3.5-3.5"/></svg>
+          <div><h3>Search that keeps up</h3><p>Names, addresses, descriptions and tags are searched as you type. Press <kbd>/</kbd> to jump to the box.</p></div>
+        </li>
+        <li class="feature reveal">
+          <span class="num">04</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>
+          <div><h3>Favorites and sorting</h3><p>Star what you use daily. Sort by favorites, A–Z or newest. Copy a link, edit it, or undo a delete.</p></div>
+        </li>
+        <li class="feature reveal">
+          <span class="num">05</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <div><h3>Your data, portable</h3><p>Export your library as a JSON file, import one, or bring in the Chrome bookmark folders you choose. There’s also an optional starter set of twelve sites.</p></div>
+        </li>
+        <li class="feature reveal">
+          <span class="num">06</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect pathLength="1" x="5" y="11" width="14" height="9" rx="2"/><path pathLength="1" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          <div><h3>Local by design</h3><p>Everything is kept in your browser’s own storage. No account, no server, no analytics.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="wrap how-grid">
+      <div class="how-stage">
+        <div class="how-sticky">
+          <div class="mini" id="mini">
+            <div class="mini-top"><strong>DevKartz</strong><span class="mini-btn" id="miniBtn">Save this tab</span></div>
+            <div class="mini-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span id="miniQuery"></span><i class="caret"></i></div>
+            <div class="mini-count" id="miniCount">2 resources</div>
+            <div class="mini-list" id="miniList"></div>
+            <div class="mini-toast" id="miniToast">Saved “Regex101”</div>
+          </div>
+        </div>
+      </div>
+      <div class="how-steps">
+        <p class="eyebrow">How it works</p>
+        <h2>Three moves. That’s the whole thing.</h2>
+        <div class="steps" id="steps">
+          <div class="step is-active" data-step="1"><span class="step-n">1</span><div><h3>Save the page you’re on</h3><p>Found a doc worth keeping? Click “Save this tab”. DevKartz grabs the title and address for you.</p></div></div>
+          <div class="step" data-step="2"><span class="step-n">2</span><div><h3>Give it a home</h3><p>Pick a category and add a few tags, or skip it for now. You can edit anything later.</p></div></div>
+          <div class="step" data-step="3"><span class="step-n">3</span><div><h3>Find it in a second</h3><p>Start typing. The list narrows as you go, so you land on the page instead of rebuilding the search.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="privacy" id="privacy">
+    <div class="wrap">
+      <p class="eyebrow on-dark">Privacy</p>
+      <h2>The privacy policy fits on one screen.</h2>
+      <div class="counters">
+        <div><b data-count="3">0</b><span>permissions required</span></div>
+        <div><b data-count="0">0</b><span>servers that see your data</span></div>
+        <div><b data-count="0">0</b><span>trackers or analytics</span></div>
+      </div>
+      <ul class="never">
+        <li><s>Create an account or ask you to sign in</s></li>
+        <li><s>Send your data to any server, including ours</s></li>
+        <li><s>Use analytics, ads or trackers</s></li>
+        <li><s>Sell or share your data</s></li>
+        <li><s>Read your browsing history or page content</s></li>
+      </ul>
+      <p class="privacy-note">Your links stay in your browser’s local storage. The required permissions are <code>storage</code>, <code>activeTab</code> and <code>favicon</code> (for site icons). A fourth, <code>bookmarks</code>, is asked for only if you import bookmarks, and is released right after.</p>
+      <a class="link-arrow on-dark" href="/privacy">Read the full policy</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap faq-grid">
+      <div><p class="eyebrow">Questions</p><h2>Things people ask.</h2><p class="faq-note">Something else? Write to <a href="mailto:contactdevkartz@gmail.com">contactdevkartz@gmail.com</a>.</p></div>
+      <div class="acc" id="acc">
+        <div class="acc-item"><button aria-expanded="true"><span>What is DevKartz?</span><i></i></button><div class="acc-panel"><div><p>A lightweight Chrome extension for saving useful developer websites, sorting them into categories and tags, and finding them again with search.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>How is this different from Chrome bookmarks?</span><i></i></button><div class="acc-panel"><div><p>Bookmarks are great for everything. DevKartz is for the few reference pages you reopen all the time. It adds tags on top of categories, a note on every link, favorites, and search that looks through all of it. It doesn’t replace your bookmarks, and you can use both.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>Can I import my Chrome bookmarks?</span><i></i></button><div class="acc-panel"><div><p>Yes. In Manage data, choose “Import Chrome bookmarks” and pick the folders you want. Chrome asks for the bookmarks permission only at that moment, and DevKartz releases it as soon as it has read your folders. Nothing leaves your device.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>Is it free?</span><i></i></button><div class="acc-panel"><div><p>Yes, the current version is free. If optional paid features are ever added, we’ll say so here and update the privacy policy before they ship.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>Where is my library stored?</span><i></i></button><div class="acc-panel"><div><p>In your browser, using <code>chrome.storage.local</code>. It stays on your device and is removed if you uninstall the extension.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>Do I need an account?</span><i></i></button><div class="acc-panel"><div><p>No. There is no sign-in and nothing is sent to a server.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>Can I back up or move my links?</span><i></i></button><div class="acc-panel"><div><p>Yes. Export your library as a JSON file whenever you like, and import it again later or on another computer. The file is saved where you choose and is never uploaded.</p></div></div></div>
+        <div class="acc-item"><button aria-expanded="false"><span>What does “Save this tab” access?</span><i></i></button><div class="acc-panel"><div><p>With the <code>activeTab</code> permission, DevKartz reads the title and address of the current tab only when you click the button. It does not read page content or your history.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="get">
+    <div class="wrap cta-grid">
+      <div>
+        <h2>Give your best links a shelf.</h2>
+        <p>Free, private, and ready in one click.</p>
+        <button class="btn btn-mint btn-magnet" data-install>Add to Chrome <span class="arrow" aria-hidden="true">→</span></button>
+      </div>
+      <div class="fan" id="fan" aria-hidden="true">
+        <div class="fan-card c1"><i></i><i></i></div>
+        <div class="fan-card c2"><i></i><i></i></div>
+        <div class="fan-card c3"><b></b><i></i><u></u></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <div class="foot-brand"><img src="/img/logo-mark.svg" alt="" width="40" height="40"><div><strong>DevKartz</strong><span>Collect. Organize. Create.</span></div></div>
+    <nav aria-label="Footer"><a href="#features">Features</a><a href="#how">How it works</a><a href="/privacy">Privacy policy</a><a href="mailto:contactdevkartz@gmail.com">Contact</a></nav>
+  </div>
+  <div class="wrap foot-small"><span>© 2026 DevKartz</span><span>Site names shown are examples of what people save. Trademarks belong to their owners.</span></div>
+</footer>
+
+<dialog id="installDialog" aria-labelledby="installTitle">
+  <form method="dialog">
+    <img src="/img/logo-icon.svg" alt="" width="44" height="44">
+    <h2 id="installTitle">Almost there.</h2>
+    <p id="installText">DevKartz is on its way to the Chrome Web Store. Want a heads-up when it’s live? Send us a note and we’ll write back the day it launches.</p>
+    <div class="dialog-actions">
+      <a class="btn" id="installLink" href="mailto:contactdevkartz@gmail.com?subject=Notify%20me%20when%20DevKartz%20launches">Email us</a>
+      <button class="btn btn-ghost" value="close">Close</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">DevKartz transparent mark</title>
+  <desc id="desc">Three layered warm-white resource cards with mint details.</desc>
+  <g fill="none" stroke="#F7F2E9" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 67h91a13 13 0 0 1 13 13v17" opacity=".62"/>
+    <path d="M65 96h91a13 13 0 0 1 13 13v17" opacity=".82"/>
+    <rect x="54" y="121" width="119" height="67" rx="15"/>
+  </g>
+  <path d="M78 146h42" stroke="#F7F2E9" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="155" cy="159" r="8" fill="#F7F2E9"/>
+</svg>
