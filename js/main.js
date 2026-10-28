@@ -4,7 +4,7 @@
 
   // Set this to the Chrome Web Store listing URL once the extension is published.
   // While empty, "Add to Chrome" opens a small "coming soon" dialog instead.
-  const STORE_URL = 'https://chromewebstore.google.com/detail/devkartz-%E2%80%94-developer-reso/hjikfpmbbcdpcnaibpapnfpeigadacom';
+  const STORE_URL = 'https://chromewebstore.google.com/detail/devkartz-%E2%80%94-developer-reso/hjikfpmbbcdpcnaibpapnfpeigadacom?utm_source=item-share-cb';
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
